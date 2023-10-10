@@ -21,15 +21,12 @@ body {
 }
 
 .hr {
-    padding: 0.5px;
+    padding: 1px;
     background-color: #dc3545;
 }
 
-
 .myCard {
     width: 300px;
-    border: 1px solid #dc3545;
-    box-shadow: 0 0 15px dimgrey;
 }
 
 #total, .myTotal, .myCard, #headContainer, #checkoutContainer, footer {
@@ -37,6 +34,14 @@ body {
 }
 
 footer li > *, #checkoutContainer > * {
-        font-size: 22px;
-        color: #dc3545
+    font-size: 22px;
+    color: #dc3545
+}
+
+.myTotal {
+    border-radius: 5px;
+}
+.myTotal, .myCard {
+    border: 2px solid #dc3545;
+    box-shadow: 0 0 15px dimgrey;
 }

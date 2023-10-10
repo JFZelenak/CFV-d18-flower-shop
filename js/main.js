@@ -9,13 +9,15 @@ let flowersRow = document.querySelector(".flowers");
 
 for (let flower of flowers) {
     flowersRow.innerHTML += `
-        <div class="card flower col my-4 myCard text-danger">
-            <img class="card-img-top mt-2 px-3" src="${flower.image}" alt="${flower.name}">
-            <div class="card-body px-3 py-0">
-                <h5 class="card-title">${flower.name}</h5>
-                <p class="card-text h3 text-end">${currencyFormater.format(
-                  flower.price
-                )}</p>
+        <div class="card flower col my-4 myCard text-danger d-flex flex-column justify-content-between">
+            <div>
+                <img class="card-img-top mt-2 px-3" src="${flower.image}" alt="${flower.name}"/>
+                <div class="card-body px-3 py-0">
+                    <h5 class="card-title">${flower.name}</h5>
+                </div>
+            </div>
+            <div>
+                <p class="card-text h3 text-end">${currencyFormater.format(flower.price)}</p>
                 <p class="card-text3 d-flex justify-content-end"><button class="btn btn-outline-danger w-75 flower-button"><i class="fs-4 bi bi-cart-plus"></i> Add to cart</button></p>
             </div>
         </div>
@@ -105,8 +107,8 @@ const createRows = () => {
     let result = "";
     for (let item of cart) {
         result += `
-            <div class="cart-row row gx-0">
-                <div class="cart-item col-6 col-sm-6 my-2 d-flex align-items-center justify-content-center">
+            <div class="row gx-0">
+                <div class="col-6 col-sm-6 my-2 d-flex align-items-center justify-content-start ps-5">
                     <img class="cart-item-image" src="${item.image}" height="100" alt="${item.name}">
                     <div class="cart-item-title h5 ms-2">${item.name}</div>
                 </div>
