@@ -1,54 +1,54 @@
 let flowers = [
     {
-        name: "red roses",
+        name: "Red Rose",
         image: "./images/red-rose.jpg",
         price: 9,
         qtty: 1
     },
     {
-        name: "pink roses",
+        name: "Pink Rose",
         image: "./images/pink-rose.jpg",
         price: 8,
         qtty: 1
     },
     {
-        name: "hyacinths",
+        name: "Hyacinth",
         image: "./images/hyacinths.jpg",
         price: 6.5,
         qtty: 1
     },
     {
-        name: "lavenders",
+        name: "Lavender",
         image: "./images/lavenders.jpg",
         price: 4.75,
         qtty: 1
     },
     {
-        name: "lilies",
+        name: "Lily",
         image: "./images/lilies.jpg",
         price: 5.5,
         qtty: 1
     },
     {
-        name: "lotus",
+        name: "Lotus",
         image: "./images/lotus.jpg",
         price: 8.5,
         qtty: 1
     },
     {
-        name: "marguerites",
+        name: "Marguerite",
         image: "./images/marguerite.jpg",
         price: 5,
         qtty: 1
     },
     {
-        name: "sunflower",
+        name: "Sunflower",
         image: "./images/sunflower.jpg",
         price: 7,
         qtty: 1
     },
     {
-        name: "tulips",
+        name: "Tulip",
         image: "./images/tulips.jpg",
         price: 7,
         qtty: 1

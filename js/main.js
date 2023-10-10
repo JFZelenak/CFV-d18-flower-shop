@@ -9,14 +9,14 @@ let flowersRow = document.querySelector(".flowers");
 
 for (let flower of flowers) {
     flowersRow.innerHTML += `
-        <div class="card flower col my-4 myCard">
+        <div class="card flower col my-4 myCard text-danger">
             <img class="card-img-top mt-2 px-3" src="${flower.image}" alt="${flower.name}">
             <div class="card-body px-3 py-0">
                 <h5 class="card-title">${flower.name}</h5>
                 <p class="card-text h3 text-end">${currencyFormater.format(
                   flower.price
                 )}</p>
-                <p class="card-text3 d-flex justify-content-end"><button class="btn w-75 flower-button"><i class="fs-4 bi bi-cart-plus"></i> Add to cart</button></p>
+                <p class="card-text3 d-flex justify-content-end"><button class="btn btn-outline-danger w-75 flower-button"><i class="fs-4 bi bi-cart-plus"></i> Add to cart</button></p>
             </div>
         </div>
     `;

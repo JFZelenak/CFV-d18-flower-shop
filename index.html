@@ -16,16 +16,16 @@
     <div id="headContainer">
         <div class="container">
             <header class="d-flex flex-wrap justify-content-center py-3">
-                <a href="/"
-                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <p class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-danger">
                     <i class="bi bi-flower1"></i>
+                    &NonBreakingSpace;
                     <span class="fs-4">Jayjays Flower Shop</span>
-                </a>
+                </p>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Shop</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <div class="d-flex gx-2">
+                    <a href="#" class="btn btn-outline-danger me-2">Shop</a>
+                    <a href="#" class="btn btn-outline-danger me-2">FAQs</a>
+                    <a href="#" class="btn btn-outline-danger">About</a>
                 </ul>
             </header>
         </div>
@@ -40,16 +40,16 @@
             </div>
         </div>
         <div class="container mb-2 p-0">
-            <div class="cart-items border rounded myTotal">
+            <div class="cart-items border rounded myTotal text-danger">
                 <!-- --- js cart-items placeholder ---  -->
             </div>
         </div>
 
-        <div id="total" class="cart-total me-0 pb-2 text-center text-sm-end fw-bold">
+        <div id="total" class="cart-total me-0 pb-2 text-center text-sm-end fw-bold text-danger mb-2">
             <p class=" h4 p-0 pe-sm-5" id="smallSum"> </p>
             <p class=" h4 p-0 pe-sm-5" id="discount"> </p>
             <p class=" h4 p-0 pe-sm-5" id="discountAmount"> </p>
-            <hr>
+            <div class="hr"> </div>
             <p>
                 <span id="numberOfItemsInCart">0</span>
                 <span id="itemSingPlur"> items total - </span>
@@ -57,8 +57,8 @@
                 <span id="price" class="cart-total-price h4 p-0 pe-sm-5 m-0 fw-bold">€ 0.00</span>
             </p>
         </div>
-        <div class="d-flex justify-content-center">
-            <button id="btn-purchase" class="btn btn-purchase text-white" type="button">
+        <div class="d-flex justify-content-center" id="checkoutContainer">
+            <button id="btn-purchase" class="btn btn-outline-danger my-2" type="button">
                 Check out <br>
                 <i class="bi bi-cart-check-fill"></i>
             </button>

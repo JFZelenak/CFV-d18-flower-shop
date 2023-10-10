@@ -17,13 +17,13 @@ body {
 
 .hr {
   padding: 0.5px;
-  background-color: black;
+  background-color: #dc3545;
 }
 
 .myCard {
   width: 300px;
 }
 
-#total, .myTotal, .myCard, #headContainer {
+#total, .myTotal, .myCard, #headContainer, #checkoutContainer {
   background-color: rgba(255, 255, 255, 0.7);
 }/*# sourceMappingURL=style.css.map */
