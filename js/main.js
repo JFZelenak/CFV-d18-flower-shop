@@ -43,7 +43,7 @@ const addToCart = (flower) => {
   } else {
     cart.push(flower);
   }
-  console.table(cart);
+//   console.table(cart);
   createRows();
   cartTotal();
 };
@@ -82,6 +82,54 @@ const createRows = () => {
             </div>                    
         </div>
     `;
-  }
-  document.querySelector(".cart-items").innerHTML = result;
+    }
+    document.querySelector(".cart-items").innerHTML = result;
+
+    const plusBtns = document.querySelectorAll(".plus" );
+    const minusBtns = document.querySelectorAll(".minus");
+    const deleteBtns = document .querySelectorAll(".del");
+
+    plusBtns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+            plusQtty(i);
+        });
+    });
+
+    minusBtns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+            minusQtty(i);
+        });
+    });
+   
+    deleteBtns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+            deleteItem(i);
+        });
+    });
+};
+
+//increases item quantity
+const plusQtty = (index) => {
+    cart[index].qtty++;
+    createRows();
+    cartTotal();
+};
+
+//decreases item quantity
+const minusQtty = (index) => {
+    if (cart[index].qtty == 1) {
+      cart.splice(index, 1);
+    } else {
+      cart[index].qtty--;
+    }
+    createRows();
+    cartTotal();
+};
+
+//deletes item from cart
+const deleteItem = (index) => {
+    cart[index].qtty = 1;
+    cart.splice(index, 1);
+    createRows();
+    cartTotal();
 };
