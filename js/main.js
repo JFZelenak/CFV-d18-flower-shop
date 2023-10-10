@@ -55,35 +55,36 @@ const cartTotal = () => {
     for (let item of cart) {
         total += item.price * item.qtty;
     }
-    total = checkDiscount(total);
+    total = total + checkDiscount(total);
     document.getElementById("price").innerHTML = currencyFormater.format(total);
 };
 
 function checkDiscount(total) {
-    let  smallSum = document.getElementById("smallSum");
+    let smallSum = document.getElementById("smallSum");
     let discount = document.getElementById("discount");
     let discountAmount = document.getElementById("discountAmount");
 
-    if (total >= 100) {
+    if (total >= 20) {
+        let dAmount = 0;
         smallSum.innerHTML = currencyFormater.format(total);
-        discount.innerHTML = "-10% Discount";
-        let dAmount = total * 0.1 * -1;
+        if (total >= 100) {
+            discount.innerHTML = "-10% Discount";
+            dAmount = total * 0.1 * -1;   
+        } else if (total >= 50) {
+            discount.innerHTML = "-5% Discount";
+            dAmount = total * 0.05 * -1;
+        } else if (total >= 20) {
+            discount.innerHTML = "-2% Discount";
+            dAmount = total * 0.02 * -1;
+        }
         discountAmount.innerHTML = currencyFormater.format(dAmount);
-        return total + dAmount;    
-    } else if (total >= 50) {
-        smallSum.innerHTML = currencyFormater.format(total);
-        discount.innerHTML = "-5% Discount";
-        let dAmount = total * 0.05 * -1;
-        discountAmount.innerHTML = currencyFormater.format(dAmount);
-        return total + dAmount;    
-    } else if (total >= 20) {
-        smallSum.innerHTML = currencyFormater.format(total);
-        discount.innerHTML = "-2% Discount";
-        let dAmount = total * 0.02 * -1;
-        discountAmount.innerHTML = currencyFormater.format(dAmount);
-        return total + dAmount;
-    } else {
-        return total;
+        return dAmount; 
+    }
+     else {
+        smallSum.innerHTML = "";
+        discount.innerHTML = "";
+        discountAmount.innerHTML = "";
+        return 0;
     }
 }
 
