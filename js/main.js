@@ -60,24 +60,28 @@ const cartTotal = () => {
 };
 
 function checkDiscount(total) {
+    let  smallSum = document.getElementById("smallSum");
+    let discount = document.getElementById("discount");
+    let discountAmount = document.getElementById("discountAmount");
+
     if (total >= 100) {
-        document.getElementById("smallSum").innerHTML = currencyFormater.format(total);
-        document.getElementById("discount").innerHTML = "-10% Discount";
-        let discountAmount = total * 0.1 * -1;
-        document.getElementById("discountAmount").innerHTML = currencyFormater.format(discountAmount);
-        return total + discountAmount;    
+        smallSum.innerHTML = currencyFormater.format(total);
+        discount.innerHTML = "-10% Discount";
+        let dAmount = total * 0.1 * -1;
+        discountAmount.innerHTML = currencyFormater.format(dAmount);
+        return total + dAmount;    
     } else if (total >= 50) {
-        document.getElementById("smallSum").innerHTML = currencyFormater.format(total);
-        document.getElementById("discount").innerHTML = "-5% Discount";
-        let discountAmount = total * 0.05 * -1;
-        document.getElementById("discountAmount").innerHTML = currencyFormater.format(discountAmount);
-        return total + discountAmount;    
+        smallSum.innerHTML = currencyFormater.format(total);
+        discount.innerHTML = "-5% Discount";
+        let dAmount = total * 0.05 * -1;
+        discountAmount.innerHTML = currencyFormater.format(dAmount);
+        return total + dAmount;    
     } else if (total >= 20) {
-        document.getElementById("smallSum").innerHTML = currencyFormater.format(total);
-        document.getElementById("discount").innerHTML = "-2% Discount";
-        let discountAmount = total * 0.02 * -1;
-        document.getElementById("discountAmount").innerHTML = currencyFormater.format(discountAmount);
-        return total + discountAmount;
+        smallSum.innerHTML = currencyFormater.format(total);
+        discount.innerHTML = "-2% Discount";
+        let dAmount = total * 0.02 * -1;
+        discountAmount.innerHTML = currencyFormater.format(dAmount);
+        return total + dAmount;
     } else {
         return total;
     }
