@@ -1,0 +1,29 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(255, 241, 171);
+  background-image: url("../images/marguerite-background.jpg");
+  background-attachment: fixed;
+}
+
+#headContainer .bi {
+  font-size: 25px;
+}
+
+.hr {
+  padding: 0.5px;
+  background-color: black;
+}
+
+.myCard {
+  width: 300px;
+}
+
+#total, .myTotal, .myCard, #headContainer {
+  background-color: rgba(255, 255, 255, 0.7);
+}/*# sourceMappingURL=style.css.map */
