@@ -1,14 +1,14 @@
 //current object formatter
 const currencyFormater = new Intl.NumberFormat("de-AT", {
-  style: "currency",
-  currency: "EUR",
+    style: "currency",
+    currency: "EUR",
 });
 
 //select the products row and add items dynamically
 let flowersRow = document.querySelector(".flowers");
 
 for (let flower of flowers) {
-  flowersRow.innerHTML += `
+    flowersRow.innerHTML += `
         <div class="card flower col my-4 myCard">
             <img class="card-img-top mt-2 px-3" src="${flower.image}" alt="${flower.name}">
             <div class="card-body px-3 py-0">
@@ -27,9 +27,9 @@ const addToCartBtn = document.querySelectorAll(".flower-button");
 
 //add event to add to cart buttons
 addToCartBtn.forEach((btn, i) => {
-  btn.addEventListener("click", () => {
-    addToCart(flowers[i]);
-  });
+    btn.addEventListener("click", () => {
+        addToCart(flowers[i]);
+    });
 });
 
 //cart declared
@@ -37,25 +37,64 @@ const cart = [];
 
 //adds product to cart
 const addToCart = (flower) => {
-  if (cart.find((val) => val.name == flower.name)) {
-    // console.log(cart.find((val) => val.name == flower.name));
-    flower.qtty++;
-  } else {
-    cart.push(flower);
-  }
+    if (cart.find((val) => val.name == flower.name)) {
+        // console.log(cart.find((val) => val.name == flower.name));
+        flower.qtty++;
+    } else {
+        cart.push(flower);
+    }
 //   console.table(cart);
-  createRows();
-  cartTotal();
+    createRows();
+    cartTotal();
+    itemsInCartTotal();
 };
 
 //updates the cart total amount
 const cartTotal = () => {
     let total = 0;
-    for (let  item of cart) {
-      total += item.price * item.qtty;
+    for (let item of cart) {
+        total += item.price * item.qtty;
     }
+    total = checkDiscount(total);
     document.getElementById("price").innerHTML = currencyFormater.format(total);
-   };
+};
+
+function checkDiscount(total) {
+    if (total >= 100) {
+        document.getElementById("smallSum").innerHTML = currencyFormater.format(total);
+        document.getElementById("discount").innerHTML = "-10% Discount";
+        let discountAmount = total * 0.1 * -1;
+        document.getElementById("discountAmount").innerHTML = currencyFormater.format(discountAmount);
+        return total + discountAmount;    
+    } else if (total >= 50) {
+        document.getElementById("smallSum").innerHTML = currencyFormater.format(total);
+        document.getElementById("discount").innerHTML = "-5% Discount";
+        let discountAmount = total * 0.05 * -1;
+        document.getElementById("discountAmount").innerHTML = currencyFormater.format(discountAmount);
+        return total + discountAmount;    
+    } else if (total >= 20) {
+        document.getElementById("smallSum").innerHTML = currencyFormater.format(total);
+        document.getElementById("discount").innerHTML = "-2% Discount";
+        let discountAmount = total * 0.02 * -1;
+        document.getElementById("discountAmount").innerHTML = currencyFormater.format(discountAmount);
+        return total + discountAmount;
+    } else {
+        return total;
+    }
+}
+
+const itemsInCartTotal = () => {
+    let totalItems = 0;
+    for (let item of cart) {
+        totalItems += item.qtty;
+    }
+    document.getElementById("numberOfItemsInCart").innerHTML = totalItems;
+    if (totalItems == 1) {
+        document.getElementById("itemSingPlur").innerHTML = " item total - ";
+    } else {
+        document.getElementById("itemSingPlur").innerHTML = " items total - ";
+    }
+};
 
 const createRows = () => {
     let result = "";
@@ -63,7 +102,7 @@ const createRows = () => {
         result += `
             <div class="cart-row row gx-0">
                 <div class="cart-item col-6 col-sm-6 my-2 d-flex align-items-center justify-content-center">
-                    <img class="cart-item-image" src="${item.image}" width="100" height="100" alt="${item.name}">
+                    <img class="cart-item-image" src="${item.image}" height="100" alt="${item.name}">
                     <div class="cart-item-title h5 ms-2">${item.name}</div>
                 </div>
                 <div class="cart-qtty-action col-2 d-flex justify-content-center align-items-center">
@@ -113,6 +152,7 @@ const plusQtty = (index) => {
     cart[index].qtty++;
     createRows();
     cartTotal();
+    itemsInCartTotal();
 };
 
 //decreases item quantity
@@ -124,6 +164,7 @@ const minusQtty = (index) => {
     }
     createRows();
     cartTotal();
+    itemsInCartTotal();
 };
 
 //deletes item from cart
@@ -132,4 +173,5 @@ const deleteItem = (index) => {
     cart.splice(index, 1);
     createRows();
     cartTotal();
+    itemsInCartTotal();
 };
